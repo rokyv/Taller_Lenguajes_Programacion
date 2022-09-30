@@ -18,12 +18,11 @@ def load_file(file):
     """
     root_dir = Path(".").resolve().parent # ruta del proyecto
     data_dir = "raw" 
-    file_path = os.path.join(root_dir,"data",data_dir, file)
+    file_path = os.path.join(root_dir,"Taller_Lenguajes_Programacion",data_dir, file)
     data = pd.read_csv(file_path, encoding="latin-1", sep=";")
     new_data = data.copy() # hacer copia de df
     print(type(new_data))
     return new_data
-
 
 def delete_rows_duplicates(df_calls):
     """
@@ -59,8 +58,6 @@ def str_to_datetime(value_str):
         
     return var_datetime
 
-
-
 def convert_column_to_datetime(df_calls, column):
     """
     convierte una columna de un df a datetime
@@ -82,7 +79,6 @@ def convert_column_to_datetime(df_calls, column):
     df_calls[column] = list_column
 
     return df_calls
-
 
 def replace_values(df_calls, column):
     """
@@ -121,12 +117,11 @@ def replace_values(df_calls, column):
 
     return df_calls
 
-
 def main():
     """
     Funcion Principal donde se realiza llamado de las demas funciones.
     """
-    #filename = input("Ingrese el nombre completo del archivo: ")
+    
     filename = "llamadas123_julio_2022.csv"
     new_data = load_file(filename) # cargar archivo
 
@@ -144,7 +139,6 @@ def main():
 
     print("\n Resultado Final \n")
     print(new_data,new_data.info())
-
 
 if __name__ == '__main__':
     main()
